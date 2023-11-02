@@ -88,3 +88,47 @@
 
 ## Reglas de negocios
 
+### usuarios
+
+1. Un usuario debe tener un correo electrónico único en el sistema
+2. La contraseña de un usuario debe estar protegida y almacenarse de manera segura
+3. Los usuarios pueden tener uno o varios roles
+4. Un usuario debe proporcionar una dirección válida
+5. Un usuario puede registrarse en el sistema
+
+### rol
+
+1. Los roles deben tener nombres únicos y descriptivos ("Administrador", "Cliente", "Empleado")
+2. Los roles pueden estar relacionados con varios usuarios, y un usuario puede tener varios roles.
+
+### posters
+
+1. Crear el registro del poster
+2. Leer el registro de un o varios posters dada la condición en particular
+3. Leer todos los registros de la entidad posters
+4. Actualizar los datos de un poster dada una condición particular
+5. Eliminar los datos de un poster dada una condición particular
+6. Cada poster debe tener un nombre unico en el sistema
+7. El precio de un producto debe ser un valor válido y no negativo
+8. La cantidad de stock de un producto no puede ser negativa
+
+### pedido
+
+1. Un pedido debe estar asoaciado a un usuario
+2. Cada pedido debe tener un estado específico, como "pendiente", "en proceso" o "entregado"
+3. La fecha de un pedido debe registrarse correctamente
+4. La cantidad de productos en un pedido no puede ser negativa
+5. El precio total de un pedido debe calcularse correctamente en función de los productos y cantidades incluidas
+
+### estado pedido
+
+1. Los estados de pedido deben ser descriptivos y únicos en el sistema.
+2. Cada pedido debe tener un estado específico (1:1)
+3. Un estado de pedido puede estar relacionado con varios pedidos (1:n)
+
+### carrito de compras
+
+1. Un carrito de compras puede estar asociado a un usuario
+2. Los posters en el carrito deben registrarse correctamente, incluyendo su cantidad y estado
+3. Los posters en el carrito no deben tener cantidades negativas
+4. Los posters en el carrito deben estar relacionados con los posters disponibles en el sistema
