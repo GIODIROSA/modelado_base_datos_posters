@@ -81,3 +81,10 @@
 5. Un _detalle carrito_ pertenece a un _carrito compras_ y a un poster (1 a 1 a m)
 6. Un _pedido_ pertenece a un usuario (m a 1)
 7. Un _pedido_ puede contener varios productos (m a m a través de la entidad "detalle_pedido")
+8. Un _usuario_ puede tener varios roles (1 a m)
+9. Un _rol_ puede estar relacionado a varios usuarios (m a m)
+10. Un _pedido_ puede tener un estado (1 a 1)
+11. un _estado pedido_ puede estar relacionado a varios pedido (1 a m)
+
+## Reglas de negocios
+
