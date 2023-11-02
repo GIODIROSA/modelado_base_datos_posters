@@ -74,3 +74,10 @@
 
 ## Relaciones
 
+1. Un _usuario_ puede tener varios _carrito compras_ (1 a m)
+2. Un _carrito compras_ pertenece a un _usuario_ (m a 1)
+3. Un _carrito compras_ puede tener muchos _posters_ (m a m a través de la entidad "detalle_carrito")
+4. Un _poster_ puede pertenecer a varias categorías (m a m)
+5. Un _detalle carrito_ pertenece a un _carrito compras_ y a un poster (1 a 1 a m)
+6. Un _pedido_ pertenece a un usuario (m a 1)
+7. Un _pedido_ puede contener varios productos (m a m a través de la entidad "detalle_pedido")
