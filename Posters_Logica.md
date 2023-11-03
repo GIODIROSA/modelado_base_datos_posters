@@ -74,7 +74,7 @@
 
 ## Relaciones
 
-1. Un _usuario_ puede tener varios _carrito compras_ (1 a m)
+1. Un _usuario_ puede tener varios _posters_ (1 a m)
 2. Un _carrito compras_ pertenece a un _usuario_ (m a 1)
 3. Un _carrito compras_ puede tener muchos _posters_ (m a m a través de la entidad "detalle_carrito")
 4. Un _poster_ puede pertenecer a varias categorías (m a m)
