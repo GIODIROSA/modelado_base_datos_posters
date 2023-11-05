@@ -1,0 +1,9 @@
+CREATE TABLE posters(
+	poster_id SERIAL PRIMARY KEY,
+	poster_nombre VARCHAR(50) NOT NULL,
+	poster_descripcion varchar(250) NOT NULL,
+	poster_precio DECIMAL (10,2) NOT NULL,
+	poster_stock INT NOT NULL
+);
+
+CREATE TABLE
