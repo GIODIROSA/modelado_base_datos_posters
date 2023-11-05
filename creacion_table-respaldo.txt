@@ -6,4 +6,81 @@ CREATE TABLE posters(
 	poster_stock INT NOT NULL
 );
 
-CREATE TABLE
+CREATE TABLE tamannos_posters(
+    tamanno_id SERIAL PRIMARY KEY,
+    tamanno_descripcion VARCHAR(255), 
+);
+
+CREATE TABLE usuarios(
+	usuario_id SERIAL PRIMARY KEY,
+    usuario_nombre VARCHAR(50) NOT NULL,
+    usuario_apellido VARCHAR (50) NOT NULL, 
+    usuario_direccion VARCHAR (90) NOT NULL,
+    usuario_email VARCHAR (100) NOT NULL, 
+    usuario_contrasenna VARCHAR (255) NOT NULL
+);
+
+CREATE TABLE roles( 
+	rol_id SERIAL PRIMARY KEY,
+    rol_nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE usuarios_roles( 
+	PRIMARY KEY (usuario_id, rol_id),
+	FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+    FOREIGN KEY (rol_id) REFERENCES roles(rol_id)
+);
+
+CREATE TABLE categorias( 
+	categoria_id SERIAL PRIMARY KEY,
+	categoria_nombre VARCHAR(255),
+);
+
+CREATE TABLE carrito_compras( 
+	carrito_compra_id SERIAL PRIMARY KEY,
+	usuario_id INTEGER NOT NULL,
+	FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+    fecha_creacion TIMESTAMP NOT NULL
+);
+
+CREATE TABLE detalle_carrito( 
+	detalle_carrito_id SERIAL PRIMARY KEY,
+    carrito_compra_id INTEGER NOT NULL,
+	FOREIGN KEY (carrito_compra_id) REFERENCES carrito_compras(carrito_compra_id),
+    poster_id INTEGER NOT NULL,
+	FOREIGN KEY (poster_id) REFERENCES posters(poster_id),
+    detalle_carrito_cantidad INT DEFAULT 0 NOT NULL
+);
+
+CREATE TABLE pedido( 
+    pedido_id SERIAL PRIMARY KEY,
+    usuario_id INTEGER NOT NULL,
+	FOREIGN kEY (usuario_id) REFERENCES usuarios(usuario_id),
+    pedido_fecha TIMESTAMP NOT NULL,
+    estado_id INTEGER NOT NULL,
+	FOREIGN kEY (estado_id) REFERENCES estado_pedido(estado_id)
+);
+
+
+CREATE TABLE detalle_pedido( 
+    detalle_pedido_id SERIAL PRIMARY KEY,
+    pedido_id INTEGER NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES pedido(pedido_id),
+    poster_id INTEGER NOT NULL,
+    FOREIGN KEY (poster_id) REFERENCES posters(poster_id),
+    detalle_cantidad INTEGER DEFAULT 0 NOT NULL,
+    detalle_precio_unitario NUMERIC(10, 2) DEFAULT 0.00 NOT NULL 
+);
+
+CREATE TABLE estado_pedido( 
+    estado_id SERIAL PRIMARY KEY,
+    estado_descripcion VARCHAR(255)
+);
+
+
+
+
+
+
+
+

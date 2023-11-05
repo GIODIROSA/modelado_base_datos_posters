@@ -31,7 +31,7 @@
 
 ### usuarios_roles (EP)
 
-    usuario_id (PK)
+    usuario_id (FK)
     rol_id (FK)
 
 ### categorias (EC)
@@ -57,7 +57,7 @@
     pedido_id (PK)
     usuario_id (FK)
     pedido_fecha
-    estadoPedido_id (FK)
+    estado_id (FK)
 
 ### detalle_pedido (EP)
 
