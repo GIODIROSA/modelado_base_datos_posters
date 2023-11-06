@@ -4,11 +4,15 @@ CREATE TABLE posters(
 	poster_descripcion varchar(250) NOT NULL,
 	poster_precio DECIMAL (10,2) NOT NULL,
 	poster_stock INT NOT NULL
+
+	-- se agrega:
+	tamanno_id (FK)
+	categoria_id (FK)
 );
 
 CREATE TABLE tamannos_posters(
     tamanno_id SERIAL PRIMARY KEY,
-    tamanno_descripcion VARCHAR(255), 
+    tamanno_descripcion VARCHAR(255) 
 );
 
 CREATE TABLE usuarios(
@@ -33,7 +37,7 @@ CREATE TABLE usuarios_roles(
 
 CREATE TABLE categorias( 
 	categoria_id SERIAL PRIMARY KEY,
-	categoria_nombre VARCHAR(255),
+	categoria_nombre VARCHAR(255)
 );
 
 CREATE TABLE carrito_compras( 

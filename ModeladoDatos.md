@@ -24,3 +24,27 @@
 - EP: _Entidad Pivote_
 - EC: _Entidad Catálogo_}
 - ET: _Entidad Transitoria_
+
+## Teoría
+
+1. posters: Esta tabla almacena información sobre los carteles disponibles en la tienda en línea. Incluye un identificador único, nombre, descripción, precio, y la cantidad en stock. La relación principal aquí es con la tabla "detalle_carrito" a través de "poster_id."
+
+2. tamannos_posters: Esta tabla podría usarse para definir tamaños específicos de carteles. Aunque no tiene relaciones directas con otras tablas, podría usarse en futuras expansiones del modelo.
+
+3. usuarios: Esta tabla almacena información sobre los usuarios de la tienda en línea. Incluye un identificador único, nombre, apellido, dirección, correo electrónico y contraseña. La tabla de relación "usuarios_roles" establece los roles de los usuarios.
+
+4. roles: Almacena los roles disponibles en el sistema, como "usuario" o "administrador." La tabla de relación "usuarios_roles" conecta los roles a los usuarios.
+
+5. usuarios_roles: Esta tabla crea una relación de muchos a muchos entre usuarios y roles. Un usuario puede tener varios roles.
+
+6. categorias: Almacena las categorías de productos. Aunque no tiene relaciones directas con otras tablas en este modelo, podría usarse para organizar productos en categorías en futuras expansiones.
+
+7. carrito_compras: Registra los carritos de compras de los usuarios, con un identificador único, el usuario que lo posee y la fecha de creación. La relación principal es con "detalle_carrito" a través de "carrito_compra_id."
+
+8. detalle_carrito: Registra los detalles de los productos en el carrito de compras, incluyendo la cantidad. La relación principal es con "posters" a través de "poster_id."
+
+9. pedido: Almacena información sobre los pedidos realizados por los usuarios. Incluye un identificador único, el usuario que hizo el pedido, la fecha y el estado del pedido. La relación principal es con "detalle_pedido" a través de "pedido_id."
+
+10. detalle_pedido: Registra los detalles de los productos en un pedido, incluyendo la cantidad y el precio unitario. La relación principal es con "posters" a través de "poster_id."
+
+11. estado_pedido: Almacena los diferentes estados que un pedido puede tener, como "pendiente" o "entregado."
