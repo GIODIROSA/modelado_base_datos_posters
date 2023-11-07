@@ -1,19 +1,12 @@
-CREATE TABLE posters(
-	poster_id SERIAL PRIMARY KEY,
-	poster_nombre VARCHAR(50) NOT NULL,
-	poster_descripcion varchar(250) NOT NULL,
-	poster_precio DECIMAL (10,2) NOT NULL,
-	poster_stock INT NOT NULL
-
-	-- se agrega:
-	tamanno_id (FK)
+CREATE TABLE productos(
+	producto_id SERIAL PRIMARY KEY,
+	producto_nombre VARCHAR(50) NOT NULL,
+	producto_descripcion varchar(250) NOT NULL,
+	producto_precio DECIMAL (10,2) NOT NULL,
+	producto_stock INT NOT NULL
 	categoria_id (FK)
 );
 
-CREATE TABLE tamannos_posters(
-    tamanno_id SERIAL PRIMARY KEY,
-    tamanno_descripcion VARCHAR(255) 
-);
 
 CREATE TABLE usuarios(
 	usuario_id SERIAL PRIMARY KEY,
@@ -51,8 +44,8 @@ CREATE TABLE detalle_carrito(
 	detalle_carrito_id SERIAL PRIMARY KEY,
     carrito_compra_id INTEGER NOT NULL,
 	FOREIGN KEY (carrito_compra_id) REFERENCES carrito_compras(carrito_compra_id),
-    poster_id INTEGER NOT NULL,
-	FOREIGN KEY (poster_id) REFERENCES posters(poster_id),
+    producto_id INTEGER NOT NULL,
+	FOREIGN KEY (producto_id) REFERENCES productos(producto_id),
     detalle_carrito_cantidad INT DEFAULT 0 NOT NULL
 );
 
@@ -70,8 +63,8 @@ CREATE TABLE detalle_pedido(
     detalle_pedido_id SERIAL PRIMARY KEY,
     pedido_id INTEGER NOT NULL,
     FOREIGN KEY (pedido_id) REFERENCES pedido(pedido_id),
-    poster_id INTEGER NOT NULL,
-    FOREIGN KEY (poster_id) REFERENCES posters(poster_id),
+    producto_id INTEGER NOT NULL,
+    FOREIGN KEY (producto_id) REFERENCES productos(producto_id),
     detalle_cantidad INTEGER DEFAULT 0 NOT NULL,
     detalle_precio_unitario NUMERIC(10, 2) DEFAULT 0.00 NOT NULL 
 );

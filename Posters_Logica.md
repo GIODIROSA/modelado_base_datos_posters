@@ -1,19 +1,17 @@
-# Posters
+# Marketplace
 
 ## Listado de Entidades:
 
-### posters (ED)
+### productos (ED)
 
-    poster_id (PK)
-    poster_nombre
-    poster_descripcion
-    poster_precio
-    poster_stock
+    producto_id (PK)
+    producto_nombre
+    producto_descripcion
+    producto_precio
+    producto_stock
+    categoria_id (FK)
 
-### tamannos_posters
 
-    tamanno_id (PK)
-    tamanno_descripcion
 
 ### usuarios (ED)
 
@@ -49,7 +47,7 @@
 
     detalle_carrito_id (PK)
     carrito_compra_id (FK)
-    poster_id (FK)
+    producto_id (FK)
     detalle_carrito_cantidad
 
 ### pedido (ED)
@@ -63,7 +61,7 @@
 
     detalle_pedido_id (PK)
     pedido_id (FK)
-    poster_id (FK)
+    producto_id (FK)
     detalle_cantidad
     detalle_precio_unitario
 
@@ -74,9 +72,9 @@
 
 ## Relaciones
 
-1. Un _usuario_ puede tener varios _posters_ (1 a m)
+1. Un _usuario_ puede tener varios _productos_ (1 a m)
 2. Un _carrito compras_ pertenece a un _usuario_ (m a 1)
-3. Un _carrito compras_ puede tener muchos _posters_ (m a m a través de la entidad "detalle_carrito")
+3. Un _carrito compras_ puede tener muchos _productos_ (m a m a través de la entidad "detalle_carrito")
 4. Un _poster_ puede pertenecer a varias categorías (m a m)
 5. Un _detalle carrito_ pertenece a un _carrito compras_ y a un poster (1 a 1 a m)
 6. Un _pedido_ pertenece a un usuario (m a 1)
@@ -98,14 +96,14 @@
 
 ### rol
 
-1. Los roles deben tener nombres únicos y descriptivos ("Administrador", "Cliente", "Empleado")
+1. Los roles deben tener nombres únicos y descriptivos ("Administrador", "Cliente")
 2. Los roles pueden estar relacionados con varios usuarios, y un usuario puede tener varios roles.
 
-### posters
+### productos
 
 1. Crear el registro del poster
-2. Leer el registro de un o varios posters dada la condición en particular
-3. Leer todos los registros de la entidad posters
+2. Leer el registro de un o varios productos dada la condición en particular
+3. Leer todos los registros de la entidad productos
 4. Actualizar los datos de un poster dada una condición particular
 5. Eliminar los datos de un poster dada una condición particular
 6. Cada poster debe tener un nombre unico en el sistema
@@ -129,6 +127,6 @@
 ### carrito de compras
 
 1. Un carrito de compras puede estar asociado a un usuario
-2. Los posters en el carrito deben registrarse correctamente, incluyendo su cantidad y estado
-3. Los posters en el carrito no deben tener cantidades negativas
-4. Los posters en el carrito deben estar relacionados con los posters disponibles en el sistema
+2. Los productos en el carrito deben registrarse correctamente, incluyendo su cantidad y estado
+3. Los productos en el carrito no deben tener cantidades negativas
+4. Los productos en el carrito deben estar relacionados con los productos disponibles en el sistema
